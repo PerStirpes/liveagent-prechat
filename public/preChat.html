@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,39 +19,25 @@
 </head>
 <body>
 <form method="post" id="prechatForm">
-
-<!-- Detail inputs -->
-First Name: <input type="text" name="liveagent.prechat:contactFirstName" /><br />
-Last Name: <input type="text" name="liveagent.prechat:contactLastName" /><br />
-Email: <input type="text" name="liveagent.prechat:contactEmail" /><br />
-
-Subject: <input type="text" name="liveagent.prechat:caseSubject" /><br />
-
-<!-- Map the detail inputs to the Contact fields --> 
-<input type="hidden" name="liveagent.prechat.findorcreate.map:Contact" value="FirstName,contactFirstName;LastName,contactLastName;Email,contactEmail;" />
-
-<!-- Try to find the Contact by email (exact match) -->
-<input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Contact" value="Email,true;" />
-<input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Contact" value="Email,true;" />
-
-<!-- If the Contact is not found, then create one with the following fields set -->
-<input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Contact" value="FirstName,true;LastName,true;Email,true;" />
-
-<!-- Save the Contact on the Live Chat Transcript's Contact Loookup -->
-<input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Contact" value="Contact" />
-
-<!-- Show the Contact when it is found or created -->
-<input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Contact" value="true" />
-
-<!-- Create a Case every time -->
-<input type="hidden" name="liveagent.prechat:caseOrigin" value="Chat" />
-<input type="hidden" name="liveagent.prechat.findorcreate.map:Case" value="Origin,caseOrigin;Subject,caseSubject;" />
-<input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Origin,true;Subject,true;" />
-<input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="Case" />
-<input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
-
-<!-- Link the Contact to the Case -->
-<input type= "hidden" name="liveagent.prechat.findorcreate.linkToEntity:Contact" value="Case,ContactId" />
+                <!-- Detail inputs -->
+                <p>Case Number:</p><input type="text" id="CaseNumber" value="5001H00000pUXU9"/><br />
+                <p>Subject:</p><input type="text" id="Subject" value="liveagent test" /><br />
+                <p>Supplied Name:</p><input type="text"  id="SuppliedName" value="kim"/><br />
+                <p>Supplied Email:</p><input type="text" id="SuppliedEmail" value="kimruben457@gmail.com" /><br />
+  
+              <input type="hidden" name="CaseStatus" value="New" /><br />
+              <input type="hidden" name="CaseOrigin" value="Web" /><br />
+              <input type="hidden" name="liveagent.prechat.name" id="SuppliedName" />
+  
+              <input type="hidden" name="liveagent.prechat.findorcreate.map:Case" value="Subject,Subject;Status,CaseStatus;Origin,CaseOrigin" />
+  
+              <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Case" value="CaseId,true" />
+              <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Case" value="CaseId,true" />
+              <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Subject,true;Status,true;Origin,true" />
+  
+              <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
+              <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="CaseId" />
+  
 
 <input type="submit" value="Request Chat" id="prechat_submit" />
 

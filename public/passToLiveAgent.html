@@ -10,34 +10,7 @@
     </head>
     <body>
         <div id="chat-icon">
-            <form>
-              <!-- Detail inputs -->
-              <p>Case Number:</p><input type="text" id="CaseNumber" value="5001H00000pUXU9"/><br />
-              <p>Subject:</p><input type="text" id="Subject" value="liveagent test" /><br />
-              <p>Supplied Name:</p><input type="text"  id="SuppliedName" value="kim"/><br />
-              <p>Supplied Email:</p><input type="text" id="SuppliedEmail" value="kimruben457@gmail.com" /><br />
-              <input type="button" value="Submit" onClick="startChat();">
-            </form>   
-
             
-
-
-
-            <input type="hidden" name="CaseStatus" value="New" /><br />
-            <input type="hidden" name="CaseOrigin" value="Web" /><br />
-            <input type="hidden" name="liveagent.prechat.name" id="SuppliedName" />
-
-            <input type="hidden" name="liveagent.prechat.findorcreate.map:Case" value="Subject,Subject;Status,CaseStatus;Origin,CaseOrigin" />
-
-            <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Case" value="CaseId,true" />
-            <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Case" value="CaseId,true" />
-            <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Subject,true;Status,true;Origin,true" />
-
-            <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
-            <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="CaseId" />
-
-
-
             <!-- <input type="hidden" name="liveagent.prechat:Case ID" id="caseID" />
             <input type="hidden" name="liveagent.prechat.findorcreate.map:Contact" value="Id,Contact ID" />
             <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Contact" value="Id,true" />
