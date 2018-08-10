@@ -22,16 +22,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'public/index.html'))
-})
-
-app.get('/passToLiveAgent', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'public/passToLiveAgent.html'))
-})
-
-app.get('/preChat', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'public/preChat.html'))
+app.get('/liveagent', function (request, response){
+    response.sendFile(path.resolve(__dirname, 'public/liveAgent.html'))
 })
 
 server.listen(process.env.PORT || 8080, function() {

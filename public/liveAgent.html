@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Generated when creating SFDC deployment -->
+    <script type='text/javascript' src='https://c.la2-c2-ord.salesforceliveagent.com/content/g/js/43.0/deployment.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="css/liveAgent.css">
+
+    <title>Live Agent Chat</title>
+</head>
+<body>
+    <div class="primary">
+        <div class="main">
+            <h1 class="title">Starting Live Agent....</h1>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            startChat();
+        })
+
+        function startChat(){
+            console.log('startChat hit')
+            // Generated when creating SFDC live agent
+            liveagent.init('https://d.la2-c2-ord.salesforceliveagent.com/chat', '5721H000000Hbdw', '00D1H000000NMSx');
+            if (!window._laq) { window._laq = []; }
+            window._laq.push(function(){
+                liveagent.enableLogging();
+                // liveagent.setChatWindowHeight('720');
+                liveagent.showWhenOnline('5731H000000HcZV', document.getElementById('liveagent_button_online_5731H000000HcZV'));
+                liveagent.showWhenOffline('5731H000000HcZV', document.getElementById('liveagent_button_offline_5731H000000HcZV'));
+                
+                liveagent.addCustomDetail('First Name', 'kim');
+                // liveagent.addCustomDetail('Last Name', document.getElementById('lastName').value);
+                liveagent.addCustomDetail('Email', getUrlParams("email"));
+                liveagent.addCustomDetail("CaseId", getUrlParams("caseId"));
+                liveagent.findOrCreate('Case').map('Id','CaseId',true,true,false).saveToTranscript('CaseId').showOnCreate();
+
+                liveagent.addButtonEventHandler('5731H000000HcZV',function (e){
+                if(e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE){              
+                        liveagent.startChat('5731H000000HcZV');
+                    }       
+                });
+            });
+        }
+
+        function getUrlParams(prop) {
+            var params = {};
+            var search = decodeURIComponent(window.location.href.slice(window.location.href.indexOf('?') + 1));
+            var definitions = search.split('&');
+            definitions.forEach( function(val, key) {
+                var parts = val.split('=', 2);
+                params[parts[0]] = parts[1];
+            } );
+            return(prop && prop in params) ? params[prop] : params;
+        }
+    </script>
+</body>
+</html>
