@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <title>Message API Demo</title>
+</head>
+<body>
+    <div class="primary">
+        <!-- Navbar -->
+        <div class="topBar">
+                <div class="topBarContainer">
+                    <div class='leftContainer'>
+                        <div class='logo'>
+                            <img class='directlyLogo' src="img/directly-demo.png" alt='directly-logo'/>
+                        </div>
+                    </div>
+                    <div class='rightContainer'>
+                    </div>
+                </div>
+            </div>
+        <div class="main">
+            <h1 class="title">Salesforce Live Agent Demo</h1>
+            
+        </div>
+        
+    </div>
+
+    <a id="liveagent_button_online_5731H000000HcZV" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('5731H000000HcZV')">Hi</a><div id="liveagent_button_offline_5731H000000HcZV" style="display: none;">offline</div><script type="text/javascript">
+        if (!window._laq) { window._laq = []; }
+        window._laq.push(function(){liveagent.showWhenOnline('5731H000000HcZV', document.getElementById('liveagent_button_online_5731H000000HcZV'));
+        liveagent.showWhenOffline('5731H000000HcZV', document.getElementById('liveagent_button_offline_5731H000000HcZV'));
+        });</script>
+
+    <script type='text/javascript' src='https://c.la2-c2-ord.salesforceliveagent.com/content/g/js/43.0/deployment.js'></script>
+    <script type='text/javascript'>
+        liveagent.init('https://d.la2-c2-ord.salesforceliveagent.com/chat', '5721H000000Hbdw', '00D1H000000NMSx');
+    </script>
+
+    <!-- <script>
+        (function(d, i, r, e, c, t, l, y) {
+            i[r] = i[r] || function () {
+                (i[r].cq = i[r].cq || []).push(arguments)
+            };
+            l = d.createElement("script");
+            l.id = "directlyRTMScript";
+            l.src = e;
+            l.async = 1;
+            y = d.head || d.getElementsByTagName("head")[0];
+            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                y.appendChild(l);
+            } else if (i.addEventListener) {
+                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            } else {
+                i.attachEvent("onload", function() { y.appendChild(l); });
+            }
+        })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
+        DirectlyRTM("config",{
+            id: "8adf38e263675d2d01636cb025dc4593",
+            "metadata": {
+                "knowledgeBaseId": 1235
+            } 
+        });
+    </script> -->
+    
+</body>
+
+</html>
