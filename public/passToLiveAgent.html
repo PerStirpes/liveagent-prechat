@@ -10,7 +10,32 @@
     </head>
     <body>
         <div id="chat-icon">
-                <input type="button" value="Submit" onClick="startChat();">  
+            <form>
+              <!-- Detail inputs -->
+              <p>Case Number:</p><input type="text" id="CaseNumber" value="5001H00000pUXU9"/><br />
+              <p>Subject:</p><input type="text" id="Subject" value="liveagent test" /><br />
+              <p>Supplied Name:</p><input type="text"  id="SuppliedName" value="kim"/><br />
+              <p>Supplied Email:</p><input type="text" id="SuppliedEmail" value="kimruben457@gmail.com" /><br />
+              <input type="button" value="Submit" onClick="startChat();">
+            </form>   
+
+            
+
+
+
+            <input type="hidden" name="CaseStatus" value="New" /><br />
+            <input type="hidden" name="CaseOrigin" value="Web" /><br />
+            <input type="hidden" name="liveagent.prechat.name" id="SuppliedName" />
+
+            <input type="hidden" name="liveagent.prechat.findorcreate.map:Case" value="Subject,Subject;Status,CaseStatus;Origin,CaseOrigin" />
+
+            <input type="hidden" name="liveagent.prechat.findorcreate.map.doFind:Case" value="CaseId,true" />
+            <input type="hidden" name="liveagent.prechat.findorcreate.map.isExactMatch:Case" value="CaseId,true" />
+            <input type="hidden" name="liveagent.prechat.findorcreate.map.doCreate:Case" value="Subject,true;Status,true;Origin,true" />
+
+            <input type="hidden" name="liveagent.prechat.findorcreate.showOnCreate:Case" value="true" />
+            <input type="hidden" name="liveagent.prechat.findorcreate.saveToTranscript:Case" value="CaseId" />
+
 
 
             <!-- <input type="hidden" name="liveagent.prechat:Case ID" id="caseID" />
@@ -38,9 +63,9 @@
                     liveagent.showWhenOnline('5731H000000HcZV', document.getElementById('liveagent_button_online_5731H000000HcZV'));
                     liveagent.showWhenOffline('5731H000000HcZV', document.getElementById('liveagent_button_offline_5731H000000HcZV'));
                   
-                    // liveagent.addCustomDetail('First Name', document.getElementById('SuppliedName').value);
-                    // // liveagent.addCustomDetail('Last Name', document.getElementById('lastName').value);
-                    // liveagent.addCustomDetail('Email', document.getElementById('SuppliedEmail').value);
+                    liveagent.addCustomDetail('First Name', document.getElementById('SuppliedName').value);
+                    // liveagent.addCustomDetail('Last Name', document.getElementById('lastName').value);
+                    liveagent.addCustomDetail('Email', document.getElementById('SuppliedEmail').value);
 
                     liveagent.addButtonEventHandler('5731H000000HcZV',function (e){
                     if(e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE){              
