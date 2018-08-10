@@ -37,7 +37,7 @@
                 liveagent.showWhenOnline('5731H000000HcZV', document.getElementById('liveagent_button_online_5731H000000HcZV'));
                 liveagent.showWhenOffline('5731H000000HcZV', document.getElementById('liveagent_button_offline_5731H000000HcZV'));
                 
-                liveagent.addCustomDetail('First Name', 'kim');
+                liveagent.addCustomDetail('First Name', getUrlParams("name"));
                 // liveagent.addCustomDetail('Last Name', document.getElementById('lastName').value);
                 liveagent.addCustomDetail('Email', getUrlParams("email"));
                 liveagent.addCustomDetail("CaseId", getUrlParams("caseId"));
