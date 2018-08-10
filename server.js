@@ -3,8 +3,6 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 
-var axios = require('axios')
-
 require('dotenv').config();
 
 var bodyParser = require('body-parser');
@@ -27,5 +25,5 @@ app.get('/liveagent', function (request, response){
 })
 
 server.listen(process.env.PORT || 8080, function() {
-	console.log("Node server started on port 8080")
+	console.log("Server started on port 8080")
 });
