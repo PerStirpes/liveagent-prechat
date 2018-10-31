@@ -6,6 +6,8 @@
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="css/liveAgent.css">
 
     <title>Live Agent Chat</title>
@@ -23,9 +25,20 @@
 
         $(document).ready(function() {
             startChat();
+            // startChatiOS()
         })
 
+        function startChatiOS() {
+            let data = {
+                name: getURLParams("name"),
+                email: getURLParams("email"),
+                caseNumber: getURLParams("caseNumber")
+            }
+            window.webkit.messageHandlers.test.postMessage(data);
+        }
+
         function startChat(){
+            
             // Generated when creating SFDC live agent
             liveagent.init('https://d.la2-c2-ord.salesforceliveagent.com/chat', '5721H000000Hbdw', '00D1H000000NMSx');
             if (!window._laq) { window._laq = []; }
@@ -40,7 +53,6 @@
                 liveagent.addCustomDetail('Email', getUrlParams("email"));
                 liveagent.addCustomDetail("CaseId", getUrlParams("caseId"));
                 liveagent.findOrCreate('Case').map('Id','CaseId',true,true,false).saveToTranscript('CaseId').showOnCreate();
-
                 liveagent.addButtonEventHandler('5731H000000HcZV',function (e){
                 if(e == liveagent.BUTTON_EVENT.BUTTON_AVAILABLE){              
                         liveagent.startChatWithWindow('5731H000000HcZV', '_self');
@@ -59,6 +71,7 @@
             } );
             return(prop && prop in params) ? params[prop] : params;
         }
+ 
     </script>
 </body>
 </html>
