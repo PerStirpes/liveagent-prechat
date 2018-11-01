@@ -1,29 +1,33 @@
-var path = require('path');
-var express = require('express');
-var app = express();
-var server = require('http').createServer(app);
+const path = require('path')
+const express = require('express')
+const app = express()
+const { createServer } = require('http')
+const { json, urlencoded } = require('body-parser')
 
-require('dotenv').config();
+require('dotenv').config()
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-
-app.use(express.static(__dirname + '/public'));
+app.use(json()) // support json encoded bodies
+app.use(urlencoded({ extended: true })) // support encoded bodies
+app.use(express.static(__dirname + '/public'))
+app.set('port', process.env.PORT || 8080)
 
 // Add headers
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
-
-app.get('/liveagent', function (request, response){
-    response.sendFile(path.resolve(__dirname, 'public/liveAgent.html'))
+app.use((_, res, next) => {
+  res.set({
+    'Access-Control-Allow-Origin': 'http://localhost:3000',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
+    'Access-Control-Allow-Credentials': true,
+  })
+  next()
 })
 
-server.listen(process.env.PORT || 8080, function() {
-	console.log("Server started on port 8080")
-});
+app.get('/liveagent', (_, response) => {
+  response
+    .status(200)
+    .sendFile(path.resolve(__dirname, 'public/liveAgent.html'))
+})
+
+const server = createServer(app).listen(app.get('port'), () => {
+  console.log(`> Server started on ${server.address().port}`)
+})
